@@ -50,10 +50,6 @@ function SignIn() {
         } else if (userData.length === "") {
           alert("please enter details")
         }
-        // const getUser = userData.filter((el, val) => {
-        //   return el.username === username && el.password === password;
-        // });
-        // console.log(getUser)
       }
     }
   }
