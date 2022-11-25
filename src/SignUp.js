@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Home from './Home'
 import './SignIn.css'
 
@@ -10,6 +10,7 @@ function SignUp() {
     address: "",
     password: ""
   });
+  const previousInputValue = useRef("");
   const inputHanlder = event => {
 
     const {name, value} = event.target;
@@ -17,11 +18,22 @@ function SignUp() {
       return {
         ...data, [name]: value}});
   }
+  useEffect(() => {
+    previousInputValue.current = data;
+  }, [data]);
+
+  const storeData = (e)  =>{
+    const prevData = localStorage.setItem('formValues', JSON.stringify(data));
+    console.log( prevData);
+  }
     
   const submitForm = (e) => {
     
     e.preventDefault(); 
-    const {username, email, address, password} = data;
+
+    console.log(previousInputValue.current);
+
+    const {username, email, address, password} = previousInputValue.current;
     if(username === "") {
       alert("Please enter username")
 
@@ -36,23 +48,26 @@ function SignUp() {
       alert("Please enter valid password")
     } else{
       //console.log("details entered")
-      localStorage.setItem('formValues', JSON.stringify(data));
+      storeData();
     }
 
+    setData({ username: '', password: '', email:'', address: "" });
+
   }
+  
   return (
     <div>
       <Home />
       <div className='signin'>
         <form onSubmit={submitForm}>
         <p> Username</p>
-        <input type="text"  name="username" onChange={inputHanlder} value={data.username}/>
+        <input type="text"  name="username" onChange={inputHanlder} value={data.username}ref={previousInputValue}/>
         <p> Email</p>
-        <input type="text"   name="email" onChange={inputHanlder} value={data.email}/>
+        <input type="text"   name="email" onChange={inputHanlder} value={data.email}ref={previousInputValue}/>
         <p> Address</p>
-        <input type="text"   name="address" onChange={inputHanlder} value={data.address}/>
+        <input type="text"   name="address" onChange={inputHanlder} value={data.address} ref={previousInputValue}/>
         <p> Password</p>
-        <input type="password"   name="password" onChange={inputHanlder} value={data.password}/> 
+        <input type="password"   name="password" onChange={inputHanlder} value={data.password}ref={previousInputValue}/> 
           <button onClick={submitForm}>Submit</button>
         </form>
       </div>
