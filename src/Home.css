@@ -1,0 +1,10 @@
+.home {
+
+  }
+  
+  .home > a{
+    margin-top: -8px;
+  }
+  .home > a > h2{
+    margin-top: 30px;
+  } 
