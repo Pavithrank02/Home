@@ -8,3 +8,9 @@
   .home > a > h2{
     margin-top: 30px;
   } 
+  .footer{
+    display: flex;
+    position: absolute;
+    width: 99%;    
+    top: 650px;
+  }

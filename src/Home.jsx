@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from './components/Header'
+import Footer from "./components/Footer";
+
 import './Home.css'
 
 function Home() {
@@ -18,6 +20,10 @@ function Home() {
           <h2> SignIn </h2>
         </Link>
       </div>
+      <div className='footer'>
+      <Footer />
+      </div>
+     
     </div>
 
   )
