@@ -1,0 +1,25 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(19, 100, 73, 0.37);
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  width: 50vw;
+  top: 50px;
+  right: 25%;
+  left: 25%;
+}
+.signin > .button{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.signin > input{
+  margin-bottom: 20px;
+}
+
+
+/* .signin > .MuiSvgIcon-root{
+  margin-top: -20px;
+  color: white;
+} */

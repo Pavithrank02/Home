@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom'
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
+import SignIn from '../SignIn';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -19,10 +20,10 @@ function BodyContent() {
     <div>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={6}>
-          <Item><img src="./images/signin.jpg" alt="this" /></Item>
+          <img src="./images/signin.jpg" alt='this'/>
         </Grid>
         <Grid item xs={6}>
-          <Item><p>This is right side</p></Item>
+          <Item><SignIn /></Item>
         </Grid>
         
         

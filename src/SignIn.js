@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { IconButton } from "@mui/material";
 import "./SignIn.css";
-import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import Home from "./Home";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';import Home from "./Home";
 import { useNavigate } from "react-router-dom";
 
 function SignIn() {
@@ -27,7 +26,7 @@ function SignIn() {
   //   }, []);
   const submitButton = (e) => {
     e.preventDefault();
-    const user = localStorage.getItem("formValues");
+    const userDetails = localStorage.getItem("formValues");
     // console.log(user);
 
     // if(user.username === username && user.password === password){
@@ -59,7 +58,7 @@ function SignIn() {
       <form>
         <div className="signin">
           <IconButton>
-            <AccountCircleRoundedIcon sx={{ fontSize: 70 }} />
+            <AccountCircleIcon sx={{ fontSize: 70 }} />
           </IconButton>
           <p> Username</p>
           <input

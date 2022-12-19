@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
@@ -22,7 +23,10 @@ export default function Header() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Home
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link to='/signIn'>
+          <Button color="inherit" >Login</Button>
+          </Link>
+          
         </Toolbar>
       </AppBar>
     </Box>
