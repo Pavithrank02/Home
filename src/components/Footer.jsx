@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 function Footer() {
  return (
     <Box sx={{ flexGrow: 4 }}>
-      <AppBar position="sticky" >
+      <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
             Copyrighted to pavithran

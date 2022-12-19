@@ -11,6 +11,7 @@
   .footer{
     display: flex;
     position: absolute;
+    align-items: center;
     width: 99%;    
     bottom: 10px;
   }
