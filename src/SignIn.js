@@ -17,7 +17,7 @@ function SignIn() {
     setData((prev) => {
       return { ...prev, [name]: value };
     });
-  };
+  }
 
   // useEffect(() => {
   //     const inputVal = JSON.parse(localStorage.getItem('formValues'));
@@ -41,8 +41,8 @@ function SignIn() {
     } else if (password.length < 5) {
       alert("Please enter valid password");
     } else {
-      if (user && user.length) {
-        const userData = JSON.parse(user);
+      if (userDetails && userDetails.length) {
+        const userData = JSON.parse(userDetails);
         if (userData.username === username && userData.password === password) {
           console.log("login successful");
           history("/success");
@@ -69,17 +69,8 @@ function SignIn() {
             value={data.username}
           />
           <p> Password</p>
-          <input
-            type="password"
-            name="password"
-            onChange={inputHanlder}
-            value={data.password}
-          />
-          {
-            <button onClick={submitButton} type="submit">
-              Login
-            </button>
-          }
+          <input type="password" name="password" onChange={inputHanlder} value={data.password} />
+          {<button onClick={submitButton} type="submit">Login</button>}
         </div>
       </form>
     </div>
