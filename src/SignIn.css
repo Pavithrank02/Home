@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  height: 55vh;
+  height: 60vh;
   width: 20vw;
   top: 20vh;
   right: 0;
@@ -29,4 +29,15 @@
 
 .icon {
   color: #f0f0f0;
+}
+.signin > .MuiButton-root{
+  margin-top: 10px;
+  margin-left: 1px;
+  width: 14vw;
+}
+.signin > .log{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 20vw;
 }

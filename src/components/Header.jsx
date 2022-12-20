@@ -20,12 +20,16 @@ export default function Header() {
             sx={{ mr: 2 }}
           >
           </IconButton>
+         
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'white' }}>
-            Home
+          <Link to='/' className='link'>
+               Home
+            </Link>
           </Typography>
           <Link to='/signIn'>
           <Button sx={{color:"white", textDecoration:"none", fontSize: 15}} >Login</Button>
           </Link>
+          
           
         </Toolbar>
       </AppBar>
