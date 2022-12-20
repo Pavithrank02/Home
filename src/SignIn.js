@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { IconButton } from "@mui/material";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import "./SignIn.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';import Home from "./Home";
 import { useNavigate } from "react-router-dom";
@@ -54,22 +56,34 @@ function SignIn() {
 
   return (
     <div>
-      <Home />
       <form>
-        <div className="signin">
-          <IconButton>
-            <AccountCircleIcon sx={{ fontSize: 70 }} />
+        <div className="container">
+          <div className="signin">
+          <h2>Login</h2>
+          <p>Add Your Credentials Below..</p>
+          <IconButton className="icon">
+            <AccountCircleIcon sx={{ fontSize: 70, color: "black"}}  />
           </IconButton>
-          <p> Username</p>
-          <input
-            type="text"
+          <TextField
+            margin="dense"
+            color="primary"
+            id="outlined-multiline-flexible"
+            label="Username"
             name="username"
             onChange={inputHanlder}
             value={data.username}
           />
-          <p> Password</p>
-          <input type="password" name="password" onChange={inputHanlder} value={data.password} />
-          {<button onClick={submitButton} type="submit">Login</button>}
+          <TextField
+            margin="normal"
+            id="outlined-multiline-flexible"
+            sx={{color: "white"}}
+            label="Password"
+            name="password" 
+            backgroundColor="white"
+            onChange={inputHanlder} 
+            value={data.password} />
+          {<Button variant="contained" size="medium" onClick={submitButton} type="submit">Login</Button>}
+          </div>
         </div>
       </form>
     </div>

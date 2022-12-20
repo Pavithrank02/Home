@@ -1,25 +1,32 @@
+
 .signin {
   display: flex;
   flex-direction: column;
-  background-color: rgba(19, 100, 73, 0.37);
+  background-color: rgba(255, 255, 255, 0.822);
   align-items: center;
   justify-content: center;
-  height: 60vh;
-  width: 50vw;
-  top: 50px;
-  right: 25%;
-  left: 25%;
+  position: absolute;
+  height: 55vh;
+  width: 20vw;
+  top: 20vh;
+  right: 0;
+  left: 65%;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  border: 2px solid blue;
 }
-.signin > .button{
+.signin > .MuiButton-contained{
   margin-top: 20px;
-  margin-bottom: 10px;
 }
-.signin > input{
-  margin-bottom: 20px;
+.signin > h2{
+  margin-bottom: 0;
 }
-
 
 /* .signin > .MuiSvgIcon-root{
   margin-top: -20px;
   color: white;
 } */
+
+.icon {
+  color: #f0f0f0;
+}
