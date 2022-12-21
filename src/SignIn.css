@@ -16,10 +16,14 @@
   border: 2px solid blue;
 }
 .signin > .MuiButton-contained{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .signin > h2{
   margin-bottom: 0;
+}
+.signin > .h{
+  margin-top: 0;
+  margin-bottom: 1px;
 }
 
 /* .signin > .MuiSvgIcon-root{
@@ -40,4 +44,5 @@
   flex-direction: row;
   justify-content: space-evenly;
   width: 20vw;
+  cursor: pointer;
 }
