@@ -26,11 +26,15 @@ function SignUp() {
 
   }
   const storeData = () => {
-    var names = localStorage.getItem("formsValues") || []
-    console.log("names", names)
-    let newArr = [...names, data];
-    console.log("names1", newArr)
-    localStorage.setItem("formsValues", newArr);
+    // var names = localStorage.getItem("formsValues") || []
+    // console.log("names", names)
+    // let newArr = [...names, data];
+    // console.log("names1", newArr)
+    localStorage.setItem("formsValues", JSON.stringify(data))
+    let values = JSON.parse(localStorage.getItem("formsValues"));
+    // console.log("names1", values)
+    // let newArr = [...values, data];
+    // console.log("names2", newArr)
   }
   const submitForm = (e) => {
 
