@@ -26,10 +26,11 @@ function SignUp() {
 
   }
   const storeData = () => {
-    var names = JSON.parse(localStorage.getItem("formsValues") || [])
-    console.log("names", names)
+    let names = JSON.parse(localStorage.getItem("formsValues") )|| []
+    console.log("names", names);
     let newArr = [...names, data];
-    localStorage.setItem("formsValues1", JSON.stringify(newArr))
+    console.log(newArr);
+    localStorage.setItem("formsValues", JSON.stringify(newArr))
 
 
 
@@ -60,9 +61,10 @@ function SignUp() {
       alert("Please enter valid password")
     } else {
       //console.log("details entered")
-      localStorage.setItem("formsValues", JSON.stringify([data]));
-      storeData();
+      // localStorage.setItem("formsValues", JSON.stringify([data]));
+     
       setData(initialData);
+      storeData();
       //addData();
     }
   }
