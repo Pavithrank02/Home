@@ -1,19 +1,23 @@
-
+.app{
+  height: 90vh;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .signin {
   display: flex;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.822);
   align-items: center;
   justify-content: center;
-  position: absolute;
-  height: 60vh;
-  width: 20vw;
-  top: 20vh;
-  right: 0;
-  left: 65%;
   color: rgb(0, 0, 0);
   border-radius: 10px;
   border: 2px solid blue;
+  width: 40vw;
+  height: 60vh;
 }
 .signin > .MuiButton-contained{
   margin-top: 10px;
@@ -24,6 +28,10 @@
 .signin > .h{
   margin-top: 0;
   margin-bottom: 1px;
+}
+form{
+  display: flex;
+  flex-direction: column;
 }
 
 /* .signin > .MuiSvgIcon-root{
@@ -45,7 +53,4 @@
   justify-content: space-evenly;
   width: 20vw;
   cursor: pointer;
-}
-.container{
-  background-color: aquamarine;
 }

@@ -1,39 +1,25 @@
-.home {
-
-  }
-  
+.Home-content{
+  height: 100vh;
+}
   .home > a{
     margin-top: -8px;
   }
   .home > a > h2{
     margin-top: 30px;
   } 
-  .footer{
-    display: flex;
-    position: absolute;
-    align-items: center;
-    width: 99%;    
-    bottom: 10px;
-  }
   .body{
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    top: 15vh;
     background-color: rgb(255, 255, 255);
-    width: 50vw;
-    height: 75vh;
+    margin-top: 40px;
   }
   .body h1{
     justify-content: center;
-    margin-bottom: 0;
-
   }
-  .body img{
-    width: 30vw;
-
+  .text-home{
+    justify-content: right;
+  }
+  .image-sign{
+    height: 30vh;
+    justify-items: flex-start;
   }
   .link{
     color: white;

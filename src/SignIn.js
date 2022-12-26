@@ -1,14 +1,14 @@
-import React from "react";
-import { useState } from "react";
-import { IconButton } from "@mui/material";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
 import Button from '@mui/material/Button';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TextField from '@mui/material/TextField';
 import GoogleIcon from '@mui/icons-material/Google';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import "./SignIn.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'; import Home from "./Home";
-import { useNavigate } from "react-router-dom";
+import "./SignIn.css";
+import { Grid } from "@mui/material";
 
 function SignIn() {
   const history = useNavigate();
@@ -31,7 +31,9 @@ function SignIn() {
   //   }, []);
   const submitButton = (e) => {
     e.preventDefault();
-    const userDetails = localStorage.getItem("formValues");
+
+    const userDetails = localStorage.getItem("formsValues");
+    //console.log(userDetails)
     // console.log(user);
 
     // if(user.username === username && user.password === password){
@@ -39,7 +41,7 @@ function SignIn() {
     // } else {
     //   console.log("doesnt match");
     // }
-    const { username, password } = [data];
+    const { username, password } = data;
     if (username === "") {
       alert("Please enter username");
     } else if (password.length < 5) {
@@ -47,6 +49,8 @@ function SignIn() {
     } else {
       if (userDetails && userDetails.length) {
         const userData = JSON.parse(userDetails);
+        console.log(userData);
+        //console.log(userData.username);
         if (userData.username === username && userData.password === password) {
           console.log("login successful");
           history("/success");
@@ -56,17 +60,16 @@ function SignIn() {
       }
     }
   };
-
   return (
-    <div>
-      <form>
-        <div className="container">
-          <div className="signin">
-            <h2>Login</h2>
-            <p>Add Your Credentials Below..</p>
-            <IconButton className="icon">
-              <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD" }} />
-            </IconButton>
+    <Grid container spacing={3} mx={10} justifyContent="flex-start" alignItems="center">
+      <div className="container">
+        <div className="signin">
+          <h2>Login</h2>
+          <p>Add Your Credentials Below..</p>
+          <IconButton className="icon">
+            <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD" }} />
+          </IconButton>
+          <form >
             <TextField
               margin="dense"
               color="primary"
@@ -85,16 +88,18 @@ function SignIn() {
               onChange={inputHanlder}
               value={data.password} />
             {<Button variant="contained" size="medium" onClick={submitButton} type="submit">Login</Button>}
-            <p>------or Signin Through------</p>
-            <div className="log">
-              <GoogleIcon sx={{ color: "red" }} />
-              <FacebookIcon sx={{ color: "blue" }} />
-              <TwitterIcon sx={{ color: "#19A2DD" }} />
-            </div>
+          </form>
+          <p>------or Signin Through------</p>
+          <div className="log">
+            <GoogleIcon sx={{ color: "red" }} />
+            <FacebookIcon sx={{ color: "blue" }} />
+            <TwitterIcon sx={{ color: "#19A2DD" }} />
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+
+    </Grid>
+
   );
 }
 

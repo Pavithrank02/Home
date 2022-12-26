@@ -1,9 +1,9 @@
 import React from 'react';
-import "./App.css";
+import { Routes, Route } from 'react-router-dom';
 import Home from "./Home";
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import { Routes, Route } from 'react-router-dom';
+import "./App.css";
 function App() {
   return (
     <div className="app">
@@ -13,8 +13,7 @@ function App() {
       </Routes>
       <Routes>
       <Route path="/signUp" element={<SignUp />} />
-      </Routes>
-      
+      </Routes> 
     </div>
   );
 }
