@@ -34,7 +34,7 @@ function SignIn() {
               label="Password"
               name="password"
                />
-            {<Button variant="contained" size="medium" onClick={submitButton} type="submit">Login</Button>}
+            {<Button variant="contained" size="medium" type="submit">Login</Button>}
           </form>
           <p>------or Signin Through------</p>
           <div className="log">
