@@ -6,7 +6,6 @@ import Paper from '@mui/material/Paper';
 import SignIn from './../SignIn';
 import SignUp from './../SignUp';
 import pic from "./../images/signin.jpg"
-import './../Home.css'
 
 function Body() {
   const Item = styled(Paper)(({ theme }) => ({

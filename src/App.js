@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from "./Home";
-import './SignIn.css'
+import './Styles.css'
 function App() {
   return (
     <div className="app">

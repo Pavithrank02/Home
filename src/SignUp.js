@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Home from './Home'
 import { Grid } from "@mui/material";
-import './SignIn.css'
+import './Styles.css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
