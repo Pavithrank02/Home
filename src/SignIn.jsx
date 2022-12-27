@@ -25,8 +25,7 @@ function SignIn() {
               id="outlined-multiline-flexible"
               label="Username"
               name="username"
-              onChange={inputHanlder}
-              value={data.username}
+              
             />
             <TextField
               margin="normal"
@@ -34,8 +33,7 @@ function SignIn() {
               sx={{ color: "white" }}
               label="Password"
               name="password"
-              onChange={inputHanlder}
-              value={data.password} />
+               />
             {<Button variant="contained" size="medium" onClick={submitButton} type="submit">Login</Button>}
           </form>
           <p>------or Signin Through------</p>
