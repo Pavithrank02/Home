@@ -61,8 +61,6 @@ function SignIn() {
     }
   };
   return (
-    <Grid container spacing={3} mx={10} justifyContent="flex-start" alignItems="center">
-      <div className="container">
         <div className="signin">
           <h2>Login</h2>
           <p>Add Your Credentials Below..</p>
@@ -96,9 +94,6 @@ function SignIn() {
             <TwitterIcon sx={{ color: "#19A2DD" }} />
           </div>
         </div>
-      </div>
-
-    </Grid>
 
   );
 }

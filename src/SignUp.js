@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Home from './Home'
+import { Grid } from "@mui/material";
 import './SignIn.css'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -26,7 +27,7 @@ function SignUp() {
 
   }
   const storeData = () => {
-    let names = JSON.parse(localStorage.getItem("formsValues") )|| []
+    let names = JSON.parse(localStorage.getItem("formsValues")) || []
     console.log("names", names);
     let newArr = [...names, data];
     console.log(newArr);
@@ -62,40 +63,39 @@ function SignUp() {
     } else {
       //console.log("details entered")
       // localStorage.setItem("formsValues", JSON.stringify([data]));
-     
+
       setData(initialData);
       storeData();
       //addData();
     }
   }
   return (
-    <div>
-      <div >
-        <form onSubmit={submitForm} className='signin'>
-          <h1 className='h'>SignUp</h1>
-          <IconButton className="icon">
-            <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD"}}  />
-          </IconButton>
-          <TextField
-            label="Username"
-            margin="dense"
-            color="primary" name="username" onChange={inputHanlder} value={data.username} />
-          <TextField
-            label="Email"
-            margin="dense"
-            color="primary" name="email" onChange={inputHanlder} value={data.email} />
-          <TextField
-            label="Address"
-            margin="dense"
-            color="primary" name="address" onChange={inputHanlder} value={data.address} />
-          <TextField
-            label="Password"
-            margin="dense"
-            color="primary" name="password" onChange={inputHanlder} value={data.password} />
-          <Button variant="contained" size="medium" onClick={submitForm}>Submit</Button>
-        </form>
-      </div>
+    <div className='signUp'>
+      <form onSubmit={submitForm}>
+        <h1 className='h'>SignUp</h1>
+        <IconButton className="icon">
+          <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD" }} />
+        </IconButton>
+        <TextField
+          label="Username"
+          margin="dense"
+          color="primary" name="username" onChange={inputHanlder} value={data.username} />
+        <TextField
+          label="Email"
+          margin="dense"
+          color="primary" name="email" onChange={inputHanlder} value={data.email} />
+        <TextField
+          label="Address"
+          margin="dense"
+          color="primary" name="address" onChange={inputHanlder} value={data.address} />
+        <TextField
+          label="Password"
+          margin="dense"
+          color="primary" name="password" onChange={inputHanlder} value={data.password} />
+        <Button variant="contained" size="medium" onClick={submitForm}>Submit</Button>
+      </form>
     </div>
+
   )
 }
 

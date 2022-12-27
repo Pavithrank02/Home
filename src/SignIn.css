@@ -16,8 +16,6 @@
   color: rgb(0, 0, 0);
   border-radius: 10px;
   border: 2px solid blue;
-  width: 40vw;
-  height: 60vh;
 }
 .signin > .MuiButton-contained{
   margin-top: 10px;
@@ -28,16 +26,23 @@
 .signin > .h{
   margin-top: 0;
   margin-bottom: 1px;
+  justify-content: center;
+}
+.signUp {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.822);
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  border: 2px solid blue;
 }
 form{
   display: flex;
   flex-direction: column;
 }
 
-/* .signin > .MuiSvgIcon-root{
-  margin-top: -20px;
-  color: white;
-} */
 
 .icon {
   color: #f0f0f0;

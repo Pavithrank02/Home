@@ -1,6 +1,4 @@
-.Home-content{
-  height: 100vh;
-}
+
   .home > a{
     margin-top: -8px;
   }
@@ -18,7 +16,7 @@
     justify-content: right;
   }
   .image-sign{
-    height: 30vh;
+    height: 60vh;
     justify-items: flex-start;
   }
   .link{

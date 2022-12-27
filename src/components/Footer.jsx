@@ -7,7 +7,7 @@ import CopyrightIcon from '@mui/icons-material/Copyright';
 import { Grid } from '@mui/material';
 function Footer() {
   return (
-    <Grid container xs my={0} className="footer" direction="row" justifyContent="center" alignItems="flex-end">
+    <Grid container xs my={7} className="footer" direction="row" justifyContent="center" alignItems="flex-end">
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="sticky">
           <Toolbar>

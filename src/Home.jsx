@@ -6,7 +6,7 @@ import './Home.css'
 
 function Home() {
   return (
-    <div className='Home-content'>
+    <div>
       <Header />
       <Body />
       <Footer />
@@ -14,5 +14,4 @@ function Home() {
 
   )
 }
-
 export default Home
