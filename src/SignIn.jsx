@@ -6,7 +6,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TextField from '@mui/material/TextField';
 import GoogleIcon from '@mui/icons-material/Google';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import "./SignIn.css";
+import "./Styles.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';import Home from "./Home";
 import { useNavigate } from "react-router-dom";
 

@@ -4,9 +4,7 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import SignIn from './../SignIn';
-import SignUp from './../SignUp';
 import pic from "./../images/signin.jpg"
-import './../Home.css'
 
 function Body() {
   const Item = styled(Paper)(({ theme }) => ({
@@ -30,9 +28,6 @@ function Body() {
       <Grid item xs={6} md={4} justifyContent="center" alignItems="center">
           <Routes>
             <Route path="/signIn" element={<SignIn />} />
-          </Routes>
-          <Routes>
-            <Route path="/signUp" element={<SignUp />} />
           </Routes>
       </Grid>
     </Grid>
