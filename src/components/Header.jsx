@@ -6,11 +6,9 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom'
-import { Grid } from '@mui/material';
 
 export default function Header() {
   return (
-    <Grid>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
@@ -33,7 +31,6 @@ export default function Header() {
           </Toolbar>
         </AppBar>
       </Box>
-    </Grid>
 
   );
 }

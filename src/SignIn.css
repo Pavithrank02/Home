@@ -1,6 +1,4 @@
-.app{
-  height: 90vh;
-}
+
 .container{
   display: flex;
   flex-direction: column;
