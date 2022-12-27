@@ -27,15 +27,13 @@ function Body() {
           <img className='image-sign' src={pic} alt='image' />
         </Item>
       </Grid>
-      <Grid item xs={6} md={4}>
-        <Item>
+      <Grid item xs={6} md={4} justifyContent="center" alignItems="center">
           <Routes>
             <Route path="/signIn" element={<SignIn />} />
           </Routes>
           <Routes>
             <Route path="/signUp" element={<SignUp />} />
           </Routes>
-        </Item>
 
       </Grid>
     </Grid>
