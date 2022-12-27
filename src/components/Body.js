@@ -28,13 +28,14 @@ function Body() {
         </Item>
       </Grid>
       <Grid item xs={6} md={4} justifyContent="center" alignItems="center">
+      <Item>
           <Routes>
             <Route path="/signIn" element={<SignIn />} />
           </Routes>
           <Routes>
             <Route path="/signUp" element={<SignUp />} />
           </Routes>
-
+        </Item>
       </Grid>
     </Grid>
   )
