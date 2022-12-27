@@ -15,7 +15,7 @@ function Body() {
     color: theme.palette.text.secondary,
   }));
   return (
-    <Grid container  spacing={12}>
+    <Grid container spacing={12}>
       <Grid item xs={6} md={6}>
         <Item>
           <h1>Welcome to Website</h1>
@@ -25,10 +25,12 @@ function Body() {
           <img className='image-sign' src={pic} alt='image' />
         </Item>
       </Grid>
-      <Grid item xs={6} md={4} justifyContent="center" alignItems="center">
+      <Grid item xs={6} md={4} mx={16} my={15} justifyContent="center" alignItems="center">
+        <Item>
           <Routes>
             <Route path="/signIn" element={<SignIn />} />
           </Routes>
+        </Item>
       </Grid>
     </Grid>
   )
