@@ -11,47 +11,40 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';import Home fr
 import { useNavigate } from "react-router-dom";
 
 function SignIn() {
-  
-
   return (
-    <div>
-      <form>
-        <div className="container">
-          <div className="signin">
+    <div className="signin">
           <h2>Login</h2>
           <p>Add Your Credentials Below..</p>
           <IconButton className="icon">
-            <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD"}}  />
+            <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD" }} />
           </IconButton>
-          <TextField
-            margin="dense"
-            color="primary"
-            id="outlined-multiline-flexible"
-            label="Username"
-            name="username"
-            onChange={inputHanlder}
-            value={data.username}
-          />
-          <TextField
-            margin="normal"
-            id="outlined-multiline-flexible"
-            sx={{color: "white"}}
-            label="Password"
-            name="password" 
-            backgroundColor="white"
-            onChange={inputHanlder} 
-            value={data.password} />
-          {<Button variant="contained" size="medium" onClick={submitButton} type="submit">Login</Button>}
+          <form >
+            <TextField
+              margin="dense"
+              color="primary"
+              id="outlined-multiline-flexible"
+              label="Username"
+              name="username"
+              onChange={inputHanlder}
+              value={data.username}
+            />
+            <TextField
+              margin="normal"
+              id="outlined-multiline-flexible"
+              sx={{ color: "white" }}
+              label="Password"
+              name="password"
+              onChange={inputHanlder}
+              value={data.password} />
+            {<Button variant="contained" size="medium" onClick={submitButton} type="submit">Login</Button>}
+          </form>
           <p>------or Signin Through------</p>
           <div className="log">
-          <GoogleIcon sx={{color:"red"}}/>
-          <FacebookIcon sx={{color:"blue"}}/>
-          <TwitterIcon sx={{color:"#19A2DD"}}/>
-          </div>
+            <GoogleIcon sx={{ color: "red" }} />
+            <FacebookIcon sx={{ color: "blue" }} />
+            <TwitterIcon sx={{ color: "#19A2DD" }} />
           </div>
         </div>
-      </form>
-    </div>
   );
 }
 
