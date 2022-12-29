@@ -25,9 +25,6 @@ export default function Header() {
                 Home
               </Link>
             </Typography>
-            <Link to='/signIn'>
-              <Button sx={{ color: "white", textDecoration: "none", fontSize: 15 }} >Login</Button>
-            </Link>
           </Toolbar>
         </AppBar>
       </Box>
