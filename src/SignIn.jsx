@@ -14,25 +14,11 @@ import "./Styles.css";
 import { Grid } from "@mui/material";
 
 function SignIn(props) {
-
-  const [formValChange, setFormValChange] = useState("");
-
-
-  // useEffect(() => {
-  //     const inputVal = JSON.parse(localStorage.getItem('formValues'));
-  //     if (inputVal) {
-  //      setInputVal(inputVal);
-  //     }
-  //   }, []);
   const formChange = () => {
-    
-    console.log(props)
-   props = {
-    setFormType: "signUp"
-   }
-    
-  }
-  
+    const { setFormType } = props;
+    setFormType("signup");
+  };
+
   return (
     <div className="signin">
       <h2>Login</h2>
@@ -47,8 +33,6 @@ function SignIn(props) {
           id="outlined-multiline-flexible"
           label="Username"
           name="username"
-          onChange={inputHanlder}
-          value={data.username}
         />
         <TextField
           margin="normal"
@@ -56,14 +40,11 @@ function SignIn(props) {
           sx={{ color: "white" }}
           label="Password"
           name="password"
-          onChange={inputHanlder}
-          value={data.password}
         />
         {
           <Button
             variant="contained"
             size="medium"
-            onClick={submitButton}
             type="submit"
           >
             Login
