@@ -34,13 +34,11 @@ function SignIn(props) {
   //     }
   //   }, []);
   const formChange = () => {
-    
-    console.log(props)
-   props = {
-    setFormType: "signUp"
-   }
-    
-  }
+    console.log(props);
+
+    const { setFormType } = props;
+    setFormType("signup");
+  };
   const submitButton = (e) => {
     e.preventDefault();
 
