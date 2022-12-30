@@ -10,6 +10,7 @@ import { IconButton } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import './Styles.css'
 import MuiAlert from '@mui/material/Alert';
+import { setDefaultResultOrder } from 'dns';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -24,6 +25,7 @@ const initialData = {
 function SignUp(props) {
 
   const [data, setData] = useState(initialData);
+  
   const inputHanlder = event => {
 
     const { name, value } = event.target;
@@ -75,11 +77,10 @@ function SignUp(props) {
 
     e.preventDefault();
 
-
     const { username, email, address, password } = data;
     if (username === "") {
 
-     
+      setData(false)
     } else if (!email.includes("@")) {
       alert("Please enter correct email")
 
@@ -118,6 +119,7 @@ function SignUp(props) {
             onChange="click"
             value={data.username}
             onClick="click"
+            error={data.username}
           />
 
           <TextField
@@ -127,6 +129,8 @@ function SignUp(props) {
             name="email"
             onChange={inputHanlder}
             value={data.email}
+            required
+            error={data.email}
           />
           <TextField
             label="Address"
@@ -135,6 +139,8 @@ function SignUp(props) {
             name="address"
             onChange={inputHanlder}
             value={data.address}
+            required
+            error={data.address}
           />
           <TextField
             label="Password"
@@ -143,6 +149,8 @@ function SignUp(props) {
             name="password"
             onChange={inputHanlder}
             value={data.password}
+            required
+            error={data.password}
           />
           <Button variant="contained" size="medium" onClick={submitForm}>Submit</Button>
           <Snackbar
@@ -151,6 +159,7 @@ function SignUp(props) {
             onClose={handleClose}
             message="User Account Created Successfully!"
             action={action}
+            required
           />
         </form>
         <Typography variant="p">
