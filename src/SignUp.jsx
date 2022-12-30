@@ -40,7 +40,7 @@ function SignUp(props) {
           color="primary" name="password"  />
         <Button variant="contained" size="medium" >Submit</Button>
         <Typography variant="p">
-          If you are new, <Button onClick={formChange}>SignIn </Button>
+          Already Existing User, <Button onClick={formChange}>SignIn </Button>
         </Typography>
       </form>
     </div>

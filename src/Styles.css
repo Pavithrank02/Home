@@ -52,7 +52,7 @@ form{
   margin-left: 1px;
   width: 14vw;
 }
-.signin > .log{
+.log{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
