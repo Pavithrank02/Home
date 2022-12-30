@@ -1,21 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import './Home.css'
+import Header from './components/Header'
+import Footer from "./components/Footer";
+import Body from './components/Body'
 
 function Home() {
   return (
-    <div>
-      <div className="home">
-        <Link to='/'>
-          <h1>Home </h1>
-        </Link>
-        <Link to='/signUp'>
-          <h2> SignUp </h2>
-        </Link>
-        <Link to='/signIn'>
-          <h2> SignIn </h2>
-        </Link>
-      </div>
+    <div className='Home'>
+      <Header />
+      <Body />
+      <Footer />
     </div>
 
   )
