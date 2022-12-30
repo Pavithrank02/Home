@@ -18,12 +18,12 @@ function SignIn(props) {
   };
 
   return (
-    <Box sx={{ border: 2, borderColor: 'primary.main', borderRadius: '2%', height: '90%' }}>
+    <Box sx={{ border: 2, mt:3, borderColor: 'primary.main', borderRadius: '2%', height: '90%' }}>
       <Grid container display="flex" direction="column" justifyContent="center" alignItems="center">
-        <Typography variant="h4" marginTop={2} sx={{ fontWeight: 'medium' }}>
+        <Typography variant="h4" marginTop={2} sx={{ fontWeight: 'Bold' }}>
           Login
         </Typography>
-        <Typography variant="p">
+        <Typography variant="p" marginTop={1}>
           Add Your Credentials Below..
         </Typography>
         <IconButton className="icon">
@@ -31,7 +31,7 @@ function SignIn(props) {
         </IconButton>
         <form className='form-item'>
           <TextField
-            margin="dense"
+            margin="none"
             color="primary"
             id="outlined-multiline-flexible"
             label="Username"
@@ -40,21 +40,23 @@ function SignIn(props) {
           <TextField
             margin="normal"
             id="outlined-multiline-flexible"
-            sx={{ color: "white" }}
             label="Password"
             name="password"
           />
-          {
-            <Button
-              variant="contained"
-              size="medium"
-              type="submit"
-            >
-              Login
-            </Button>
-          }
-          <Typography variant="p" sx={{ fontWeight: 'medium', textAlign: 'center' }} justifyContent="space-between">
-            If you are new, <Button onClick={formChange}>SignUp </Button>
+         
+          
+              <Button
+                variant="contained"
+                size="medium"
+                type="submit"
+                marginTop= {4}
+              >
+                Login
+              </Button>
+        
+  
+          <Typography variant="p" sx={{ fontWeight: 'medium', textAlign: 'center' }} mt={2}>
+            If you are new, <Button justifyContent="center" alignItems="center" onClick={formChange}>SignUp </Button>
           </Typography>
         </form>
         <p>------or Signin Through------</p>

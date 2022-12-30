@@ -16,7 +16,7 @@ function SignUp(props) {
   };
 
   return (
-    <Box sx={{ border: 2, borderColor: 'primary.main', borderRadius: '2%', height: '95%', width: '70%' }}>
+    <Box sx={{ border: 2, mt:3, borderColor: 'primary.main', borderRadius: '2%', height: '95%', width: '70%' }}>
       <Grid container display="flex" direction="column" justifyContent="center" alignItems="center">
       <Typography variant="h4" marginTop={2} sx={{ fontWeight: 'Bold' }}>
           SignUp

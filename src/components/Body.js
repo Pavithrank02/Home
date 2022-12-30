@@ -9,7 +9,7 @@ const Body = () => {
   const [formType, setFormType] = useState("signIn");
 
   return (
-    <Grid container spacing={12}>
+    <Grid container spacing={12} >
       <Grid
         item
         xs={8}
