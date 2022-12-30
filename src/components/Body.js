@@ -19,8 +19,8 @@ const Body = () => {
         alignItems="center"
       >
         <Typography variant="h3" >
-        Welcome to Website
-          </Typography>
+          Welcome to Website
+        </Typography>
         <img className="image-sign" src={pic} alt="image" />
       </Grid>
       <Grid
