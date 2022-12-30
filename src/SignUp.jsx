@@ -24,7 +24,7 @@ function SignUp(props) {
         <IconButton className="icon">
           <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD" }} />
         </IconButton>
-        <form >
+        <form className='form-item'>
         <TextField
           label="Username"
           margin="dense"
