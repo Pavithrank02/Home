@@ -18,10 +18,14 @@ function SignIn(props) {
   };
 
   return (
-    <Box sx={{ border: 2, borderColor: 'primary.main', borderRadius: '2%' }}>
+    <Box sx={{ border: 2, borderColor: 'primary.main', borderRadius: '2%', height: '90%' }}>
       <Grid container display="flex" direction="column" justifyContent="center" alignItems="center">
-        <h2>Login</h2>
-        <p>Add Your Credentials Below..</p>
+        <Typography variant="h4" marginTop={2} sx={{ fontWeight: 'medium' }}>
+          Login
+        </Typography>
+        <Typography variant="p">
+          Add Your Credentials Below..
+        </Typography>
         <IconButton className="icon">
           <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD" }} />
         </IconButton>
@@ -49,7 +53,7 @@ function SignIn(props) {
               Login
             </Button>
           }
-          <Typography variant="p">
+          <Typography variant="p" sx={{ fontWeight: 'medium', textAlign: 'center' }} justifyContent="space-between">
             If you are new, <Button onClick={formChange}>SignUp </Button>
           </Typography>
         </form>
