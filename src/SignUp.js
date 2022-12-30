@@ -73,14 +73,15 @@ function SignUp(props) {
       </IconButton>
     </React.Fragment>
   );
+
   const submitForm = (e) => {
 
     e.preventDefault();
 
     const { username, email, address, password } = data;
-    if (username === "") {
+    if (username === "" && data.username === "mouseout") {
+      alert("Please enter correct email")
 
-      setData(false)
     } else if (!email.includes("@")) {
       alert("Please enter correct email")
 
@@ -91,14 +92,10 @@ function SignUp(props) {
     else if (password.length < 5) {
       alert("Please enter valid password")
     } else {
-
       setData(initialData);
       storeData();
       setOpen(true);
     }
-
-
-
   }
 
   return (
@@ -110,8 +107,9 @@ function SignUp(props) {
         <IconButton className="icon">
           <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD" }} />
         </IconButton>
-        <form className='form-item'>
-          <TextField
+        <form className='form-item' noValidate
+      autoComplete="off">
+         <TextField
             label="Username"
             margin="dense"
             color="primary"
@@ -121,7 +119,7 @@ function SignUp(props) {
             onClick="click"
             error={data.username}
           />
-
+          
           <TextField
             label="Email"
             margin="dense"
