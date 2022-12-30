@@ -19,7 +19,7 @@ function SignIn(props) {
     username: "",
     password: "",
   });
-  const [formValChange, setFormValChange] = useState("");
+
   const inputHanlder = (event) => {
     const { name, value } = event.target;
     setData((prev) => {
