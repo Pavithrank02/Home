@@ -1,13 +1,12 @@
 import React, {useState} from "react";
 import Grid from "@mui/material/Grid";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
 import SignIn from "./../SignIn";
 import SignUp from "./../SignUp";
 import pic from "./../images/signin.jpg";
 
 const Body = () => {
   const [formType, setFormType] = useState("signIn");
+
   return (
     <Grid container spacing={12} >
       <Grid item xs={8} display="flex" direction="column" justifyContent="center" alignItems="center">
@@ -18,8 +17,8 @@ const Body = () => {
           </h4>
           <img className="image-sign" src={pic} alt="image" />
       </Grid>
-      <Grid item xs={4} display="flex" justifyContent="center" alignItems="flex-start">
-      { formType==="signIn" ?<SignIn /> :<SignUp /> }
+      <Grid item xs={4} display="flex" justifyContent="center" alignItems="flex-start"  >
+      { formType==="signIn" ? <SignIn setFormType= {formType}/> :<SignUp /> }
       </Grid>
     </Grid>
   );

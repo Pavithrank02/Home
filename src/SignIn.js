@@ -13,7 +13,7 @@ import Home from "./Home";
 import "./Styles.css";
 import { Grid } from "@mui/material";
 
-function SignIn() {
+function SignIn(props) {
   const history = useNavigate();
   const [data, setData] = useState({
     username: "",
@@ -34,9 +34,12 @@ function SignIn() {
   //     }
   //   }, []);
   const formChange = () => {
-    console.log("signUp")
-    setFormValChange("signUp");
-
+    
+    console.log(props)
+   props = {
+    setFormType: "signUp"
+   }
+    
   }
   const submitButton = (e) => {
     e.preventDefault();
@@ -105,7 +108,7 @@ function SignIn() {
             Login
           </Button>
         }
-        <Typography variant="h6">
+        <Typography variant="p">
           If you are new, <Button onClick={formChange}>SignUp </Button>
         </Typography>
       </form>
