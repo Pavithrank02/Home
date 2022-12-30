@@ -43,8 +43,6 @@ function SignIn(props) {
             label="Password"
             name="password"
           />
-         
-          
               <Button
                 variant="contained"
                 size="medium"
@@ -52,9 +50,7 @@ function SignIn(props) {
                 marginTop= {4}
               >
                 Login
-              </Button>
-        
-  
+              </Button>  
           <Typography variant="p" sx={{ fontWeight: 'medium', textAlign: 'center' }} mt={2}>
             If you are new, <Button justifyContent="center" alignItems="center" onClick={formChange}>SignUp </Button>
           </Typography>
