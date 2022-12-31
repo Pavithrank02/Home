@@ -36,7 +36,7 @@ function SignUp(props) {
     });
 
   }
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -74,13 +74,14 @@ function SignUp(props) {
     </React.Fragment>
   );
 
+
+
   const submitForm = (e) => {
 
     e.preventDefault();
-
     const { username, email, address, password } = data;
-    if (username === "" && data.username === "mouseout") {
-      alert("Please enter correct email")
+    if (username === "") {
+      return 
 
     } else if (!email.includes("@")) {
       alert("Please enter correct email")
@@ -114,10 +115,9 @@ function SignUp(props) {
             margin="dense"
             color="primary"
             name="username"
-            onChange="click"
+            onChange={inputHanlder}
             value={data.username}
-            onClick="click"
-            error={data.username}
+            errorMessage="Username should be written"
           />
           
           <TextField
@@ -127,8 +127,8 @@ function SignUp(props) {
             name="email"
             onChange={inputHanlder}
             value={data.email}
-            required
-            error={data.email}
+            required="true"
+            errorMessage="Username should be written"
           />
           <TextField
             label="Address"
@@ -138,7 +138,7 @@ function SignUp(props) {
             onChange={inputHanlder}
             value={data.address}
             required
-            error={data.address}
+            errorMessage="Username should be written"
           />
           <TextField
             label="Password"
@@ -147,8 +147,7 @@ function SignUp(props) {
             name="password"
             onChange={inputHanlder}
             value={data.password}
-            required
-            error={data.password}
+            errorMessage="Username should be written"
           />
           <Button variant="contained" size="medium" onClick={submitForm}>Submit</Button>
           <Snackbar
