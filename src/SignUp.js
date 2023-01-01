@@ -10,11 +10,7 @@ import { IconButton } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import './Styles.css'
 import MuiAlert from '@mui/material/Alert';
-import { setDefaultResultOrder } from 'dns';
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
 
 const initialData = {
   username: "",
@@ -22,9 +18,16 @@ const initialData = {
   address: "",
   password: ""
 }
+const initialError = {
+  username: false,
+  email: false,
+  address: false,
+  password: false,
+}
 function SignUp(props) {
 
   const [data, setData] = useState(initialData);
+  const [error, setError] = useState(initialError);
   
   const inputHanlder = event => {
 
@@ -42,7 +45,7 @@ function SignUp(props) {
     if (reason === 'clickaway') {
       return;
     }
-
+    
     setOpen(false);
   };
   const storeData = () => {
@@ -51,13 +54,11 @@ function SignUp(props) {
     let newArr = [...names, data];
     //console.log(newArr);
     localStorage.setItem("formsValues", JSON.stringify(newArr))
-
   }
   const formChange = () => {
     const { setFormType } = props;
     setFormType("signIn");
   };
-
   const action = (
     <React.Fragment>
       <Button color="secondary" size="small" onClick={handleClose}>
@@ -73,15 +74,13 @@ function SignUp(props) {
       </IconButton>
     </React.Fragment>
   );
-
-
-
   const submitForm = (e) => {
 
     e.preventDefault();
+    //console.log(error.username);
     const { username, email, address, password } = data;
-    if (username === "") {
-      return 
+    if (username == "") {
+     
 
     } else if (!email.includes("@")) {
       alert("Please enter correct email")
@@ -118,6 +117,7 @@ function SignUp(props) {
             onChange={inputHanlder}
             value={data.username}
             errorMessage="Username should be written"
+            error={error.username}
           />
           
           <TextField
