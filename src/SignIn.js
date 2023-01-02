@@ -18,6 +18,7 @@ function SignIn(props) {
     username: "",
     password: ""
   }
+
   const [data, setData] = useState(initialData);
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(true);
@@ -25,7 +26,6 @@ function SignIn(props) {
     if (reason === 'clickaway') {
       return;
     }
-
     setOpen(false);
   };
   const inputHanlder = (event) => {
@@ -34,6 +34,7 @@ function SignIn(props) {
       return { ...prev, [name]: value };
     });
   };
+
   const action = (
     <React.Fragment>
       <Button color="secondary" size="small" onClick={handleClose}>
@@ -54,6 +55,7 @@ function SignIn(props) {
     const { setFormType } = props;
     setFormType("signup");
   };
+  
   const submitButton = (e) => {
     e.preventDefault();
     setError(false);
@@ -64,13 +66,11 @@ function SignIn(props) {
       return;
      } else {
         const userData = JSON.parse(userDetails);
-        //console.log(userData)
-        userData.forEach((e, i, arr) => {
-          if (arr[i].username === username && arr[i].password === password) {
+        userData.forEach((e) => {
+          if (e.username === username && e.password === password) {
             setOpen(true);
           } else(console.log("not match"))
         } );
-
       }
       setData(initialData);
       setError(true);
