@@ -9,7 +9,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { IconButton } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import './Styles.css'
-import MuiAlert from '@mui/material/Alert';
 
 
 const initialData = {
@@ -29,7 +28,7 @@ function SignUp(props) {
       return {
         ...data, [name]: value
       }
-      
+
     });
 
   }
@@ -39,15 +38,13 @@ function SignUp(props) {
     if (reason === 'clickaway') {
       return;
     }
-    
+
     setOpen(false);
   };
 
   const storeData = () => {
     let names = JSON.parse(localStorage.getItem("formsValues")) || []
-    // console.log("names", names);
     let newArr = [...names, data];
-    //console.log(newArr);
     localStorage.setItem("formsValues", JSON.stringify(newArr))
   }
   const formChange = () => {
@@ -69,16 +66,16 @@ function SignUp(props) {
       </IconButton>
     </React.Fragment>
   );
- 
+
   const submitForm = (e) => {
     setError(false);
     e.preventDefault();
-    
-   
+
+
     // console.log(props.error);
     const { username, email, address, password } = data;
-    if (username === "" && !email.includes("@") && address === "" && password.length < 5 ) {
-
+    if (username === "" && !email.includes("@") && address === "" && password.length < 5) {
+      return;
     } else {
       setData(initialData);
       storeData();
@@ -97,8 +94,8 @@ function SignUp(props) {
           <AccountCircleIcon sx={{ fontSize: 70, color: "#1957DD" }} />
         </IconButton>
         <form className='form-item' noValidate
-      autoComplete="off">
-         <TextField
+          autoComplete="off">
+          <TextField
             label="Username"
             margin="dense"
             color="primary"
@@ -106,10 +103,10 @@ function SignUp(props) {
             required={true}
             onChange={inputHanlder}
             value={data.username}
-            error={error ?"" :!data.username}
-            helperText={!data.username ? "Field should not be empty":"" }
+            error={error ? "" : !data.username}
+            helperText={!data.username ? "Field should not be empty" : ""}
           />
-          
+
           <TextField
             label="Email"
             margin="dense"
@@ -118,8 +115,8 @@ function SignUp(props) {
             onChange={inputHanlder}
             value={data.email}
             required={true}
-            error={error ?"" :!data.email.includes("@" && ".com")}
-            helperText={!data.email.includes("@" && ".com") ? "Field should include @":"" }
+            error={error ? "" : !data.email.includes("@" && ".com")}
+            helperText={!data.email.includes("@" && ".com") ? "Field should include @" : ""}
           />
           <TextField
             label="Address"
@@ -129,8 +126,8 @@ function SignUp(props) {
             onChange={inputHanlder}
             value={data.address}
             required={true}
-            error={error ?"" :!data.address}
-            helperText={!data.address ? "Field should not be empty":"" }
+            error={error ? "" : !data.address}
+            helperText={!data.address ? "Field should not be empty" : ""}
           />
           <TextField
             label="Password"
@@ -139,8 +136,8 @@ function SignUp(props) {
             name="password"
             onChange={inputHanlder}
             value={data.password}
-            error={error ?"" :!data.password}
-            helperText={data.password.length < 5 ? "Password should be greater than 5":"" }
+            error={error ? "" : !data.password}
+            helperText={data.password.length < 5 ? "Password should be greater than 5" : ""}
           />
           <Button variant="contained" size="medium" onClick={submitForm}>Submit</Button>
           <Snackbar
@@ -151,7 +148,6 @@ function SignUp(props) {
             action={action}
             required
           />
-          
         </form>
         <Typography variant="p">
           Already Existing User, <Button onClick={formChange}>SignIn </Button>
