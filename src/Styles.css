@@ -1,42 +1,10 @@
 
-.container{
+.Home{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
 }
-.signin {
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.822);
-  align-items: center;
-  justify-content: center;
-  color: rgb(0, 0, 0);
-  border-radius: 10px;
-  border: 2px solid blue;
-}
-.signin > .MuiButton-contained{
-  margin-top: 10px;
-}
-.signin > h2{
-  margin-bottom: 0;
-}
-.signin > .h{
-  margin-top: 0;
-  margin-bottom: 1px;
-  justify-content: center;
-}
-.signUp {
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.822);
-  align-items: center;
-  justify-content: center;
-  color: rgb(0, 0, 0);
-  border-radius: 10px;
-  border: 2px solid blue;
-  height: 65vh;
-}
+
 .form-item{
   display: flex;
   flex-direction: column;
@@ -44,16 +12,6 @@
 
 }
 
-
-.icon {
-  color: #f0f0f0;
-
-}
-.signin > .MuiButton-root{
-  margin-top: 10px;
-  margin-left: 1px;
-  width: 14vw;
-}
 .log{
   display: flex;
   flex-direction: row;
@@ -63,22 +21,7 @@
   cursor: pointer;
 }
 
-.home > a{
-  margin-top: -8px;
-}
-.home > a > h2{
-  margin-top: 30px;
-} 
-.body{
-  background-color: rgb(255, 255, 255);
-  margin-top: 40px;
-}
-.body h1{
-  justify-content: center;
-}
-.text-home{
-  justify-content: right;
-}
+
 .image-sign{
   height: 60vh;
   justify-items: flex-start;
