@@ -20,13 +20,13 @@ function SignIn(props) {
   }
 
   const [data, setData] = useState(initialData);
-  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState(false);
   const [error, setError] = useState(true);
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-    setOpen(false);
+    setMessage(false);
   };
   const inputHanlder = (event) => {
     const { name, value } = event.target;
@@ -66,10 +66,11 @@ function SignIn(props) {
       return;
      } else {
         const userData = JSON.parse(userDetails);
-        userData.find((e) => {
-          if (e.username === username && e.password === password) {
-            setOpen(true);
-          } else(console.log("not match"))
+        userData.find((e,i,arr) => {
+          console.log(e);
+          // if (arr.username === username && e.password === password) {
+          //   setMessage(true);
+          // } else(console.log("not match"))
         } );
       } 
       setData(initialData);
@@ -118,7 +119,7 @@ function SignIn(props) {
             Login
           </Button>
           <Snackbar
-            open={open}
+            open={message}
             autoHideDuration={6000}
             onClose={handleClose}
             message="You Have Successfully Logged In!"

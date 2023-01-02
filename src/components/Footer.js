@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 function Footer() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, top: 'auto', bottom: 0 }} >
       <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} align="center">

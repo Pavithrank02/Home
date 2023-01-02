@@ -77,10 +77,10 @@ function SignUp(props) {
     if (username === "" && !email.includes("@") && address === "" && password.length < 5) {
       return;
     } else {
-      setData(initialData);
       storeData();
       setOpen(true);
       setError(true);
+      setData(initialData);
     }
   }
 
