@@ -77,7 +77,8 @@ function SignUp(props) {
   const submitForm = (e) => {
 
     e.preventDefault();
-    //console.log(error.username);
+    
+    // console.log(props.error);
     const { username, email, address, password } = data;
     if (username == "") {
      
@@ -117,7 +118,8 @@ function SignUp(props) {
             onChange={inputHanlder}
             value={data.username}
             errorMessage="Username should be written"
-            error={error.username}
+            error={!data.username}
+            helperText={data.username ? "": 'Field should not be empty'}
           />
           
           <TextField
