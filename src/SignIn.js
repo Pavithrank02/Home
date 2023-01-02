@@ -67,11 +67,8 @@ function SignIn(props) {
         userData.forEach(e => {
           if (e.username === username && e.password === password) {
             setOpen(true);
-          } 
-          else {
-            alert("not matched");
-          }
-        });
+          } else(console.log("not match"))
+        } );
 
       }
       setData(initialData);
