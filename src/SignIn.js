@@ -20,7 +20,7 @@ function SignIn(props) {
   }
   const [data, setData] = useState(initialData);
   const [open, setOpen] = useState(false);
-
+  const [error, setError] = useState(true);
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -56,28 +56,27 @@ function SignIn(props) {
   };
   const submitButton = (e) => {
     e.preventDefault();
+    setError(false);
 
     const userDetails = localStorage.getItem("formsValues");
     const { username, password } = data;
-    if (username === "") {
-      alert("Please enter username");
-    } else if (password.length < 5) {
-      alert("Please enter valid password");
-    } else {
-      if (userDetails && userDetails.length) {
+    if (username === "" && password.length < 5) {
+      return;
+     } else {
         const userData = JSON.parse(userDetails);
         userData.forEach(e => {
           if (e.username === username && e.password === password) {
             setOpen(true);
-          } else {
+          } 
+          else {
             alert("not matched");
           }
         });
 
       }
       setData(initialData);
-    }
-  };
+      setError(true);
+    };
 
   return (
     <Box sx={{ border: 2, mt: 3, borderColor: 'primary.main', borderRadius: '2%', height: '90%' }}>
@@ -100,6 +99,7 @@ function SignIn(props) {
             name="username"
             onChange={inputHanlder}
             value={data.username}
+            error={error ? "" : !data.username}
           />
           <TextField
             margin="normal"
@@ -108,6 +108,7 @@ function SignIn(props) {
             name="password"
             onChange={inputHanlder}
             value={data.password}
+            error={error ? "" : !data.password}
           />
           <Button
             variant="contained"
