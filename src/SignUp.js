@@ -18,24 +18,18 @@ const initialData = {
   address: "",
   password: ""
 }
-const initialError = {
-  username: false,
-  email: false,
-  address: false,
-  password: false,
-}
+
 function SignUp(props) {
 
   const [data, setData] = useState(initialData);
-  const [error, setError] = useState(initialError);
-  
+  const [error, setError] = useState(true);
   const inputHanlder = event => {
-
     const { name, value } = event.target;
     setData(() => {
       return {
         ...data, [name]: value
       }
+      
     });
 
   }
@@ -48,6 +42,7 @@ function SignUp(props) {
     
     setOpen(false);
   };
+
   const storeData = () => {
     let names = JSON.parse(localStorage.getItem("formsValues")) || []
     // console.log("names", names);
@@ -74,28 +69,21 @@ function SignUp(props) {
       </IconButton>
     </React.Fragment>
   );
+ 
   const submitForm = (e) => {
-
+    setError(false);
     e.preventDefault();
     
+   
     // console.log(props.error);
     const { username, email, address, password } = data;
-    if (username == "") {
-     
+    if (username === "" && !email.includes("@") && address === "" && password.length < 5 ) {
 
-    } else if (!email.includes("@")) {
-      alert("Please enter correct email")
-
-    }
-    else if (address === "") {
-      alert("Please enter correct address")
-    }
-    else if (password.length < 5) {
-      alert("Please enter valid password")
     } else {
       setData(initialData);
       storeData();
       setOpen(true);
+      setError(true);
     }
   }
 
@@ -115,11 +103,11 @@ function SignUp(props) {
             margin="dense"
             color="primary"
             name="username"
+            required={true}
             onChange={inputHanlder}
             value={data.username}
-            errorMessage="Username should be written"
-            error={!data.username}
-            helperText={data.username ? "": 'Field should not be empty'}
+            error={error ?"" :!data.username}
+            helperText={!data.username ? "Field should not be empty":"" }
           />
           
           <TextField
@@ -129,8 +117,9 @@ function SignUp(props) {
             name="email"
             onChange={inputHanlder}
             value={data.email}
-            required="true"
-            errorMessage="Username should be written"
+            required={true}
+            error={error ?"" :!data.email.includes("@" && ".com")}
+            helperText={!data.email.includes("@" && ".com") ? "Field should include @":"" }
           />
           <TextField
             label="Address"
@@ -139,8 +128,9 @@ function SignUp(props) {
             name="address"
             onChange={inputHanlder}
             value={data.address}
-            required
-            errorMessage="Username should be written"
+            required={true}
+            error={error ?"" :!data.address}
+            helperText={!data.address ? "Field should not be empty":"" }
           />
           <TextField
             label="Password"
@@ -149,7 +139,8 @@ function SignUp(props) {
             name="password"
             onChange={inputHanlder}
             value={data.password}
-            errorMessage="Username should be written"
+            error={error ?"" :!data.password}
+            helperText={data.password.length < 5 ? "Password should be greater than 5":"" }
           />
           <Button variant="contained" size="medium" onClick={submitForm}>Submit</Button>
           <Snackbar
@@ -160,6 +151,7 @@ function SignUp(props) {
             action={action}
             required
           />
+          
         </form>
         <Typography variant="p">
           Already Existing User, <Button onClick={formChange}>SignIn </Button>
