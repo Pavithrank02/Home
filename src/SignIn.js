@@ -66,12 +66,12 @@ function SignIn(props) {
       return;
      } else {
         const userData = JSON.parse(userDetails);
-        userData.forEach((e) => {
+        userData.find((e) => {
           if (e.username === username && e.password === password) {
             setOpen(true);
           } else(console.log("not match"))
         } );
-      }
+      } 
       setData(initialData);
       setError(true);
     };
