@@ -64,8 +64,9 @@ function SignIn(props) {
       return;
      } else {
         const userData = JSON.parse(userDetails);
-        userData.forEach(e => {
-          if (e.username === username && e.password === password) {
+        //console.log(userData)
+        userData.forEach((e, i, arr) => {
+          if (arr[i].username === username && arr[i].password === password) {
             setOpen(true);
           } else(console.log("not match"))
         } );
