@@ -57,9 +57,6 @@ function SignUp(props) {
   };
   const action = (
     <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleClose}>
-        UNDO
-      </Button>
       <IconButton
         size="small"
         aria-label="close"
@@ -70,22 +67,26 @@ function SignUp(props) {
       </IconButton>
     </React.Fragment>
   );
-
+  const cloneErrors = JSON.parse(JSON.stringify(errors));
   const handleValidation = (data) => {
-    let mockObj = errors;
+    let mockObj = cloneErrors;
+    const usernameV = "^[A-Za-z]{4,15}$"
+    const passw=  /^(?=.*[0-9]){6,16}$/;
+    const emailV = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+    const { username, email, address, password } = data;
 
     console.log("first",mockObj)
 
-    if (data.username) {
+    if (username !== usernameV) {
       mockObj.username = true;
     }
-    if (data.email) {
+    if (email !== emailV) {
       mockObj.email = true;
     }
-    if (data.address) {
+    if (address==="") {
       mockObj.address = true;
     }
-    if (data.password) {
+    if (password !== passw) {
       mockObj.password = true;
     }
 
@@ -96,9 +97,8 @@ function SignUp(props) {
     e.preventDefault();
 
     // console.log(props.error);
-    const { username, email, address, password } = data;
 
-    const validationErrors = handleValidation(data);
+    let validationErrors = handleValidation(data);
 
     console.log("second",validationErrors);
 
@@ -108,22 +108,14 @@ function SignUp(props) {
     //   address: true,
     //   password: true,
     // };
-
-    if (
-      !(
-        username === "" &&
-        !email.includes("@") &&
-        address === "" &&
-        password.length < 5
-      )
-    ) {
+if(!validationErrors)
+     {
       storeData();
       setOpen(true);
-      setErrors(validationErrors);
       setData(initialData);
       
     }
-    
+    setErrors(validationErrors);
   };
 
   return (
