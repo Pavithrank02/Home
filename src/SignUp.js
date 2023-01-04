@@ -75,9 +75,6 @@ function SignUp(props) {
     const passw=  /^(?=.*[0-9])[0-9]{6,15}$/;
     const emailV = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
     const { username, email, address, password } = data;
-    console.log(data)
-
-    console.log("first",mockObj)
 
     if (!usernameV.test(username)) {
       mockObj.username = true; 
@@ -92,33 +89,21 @@ function SignUp(props) {
       mockObj.password = true;
     }
 
-    console.log(mockObj) ;
     return mockObj;
   };
 
   const submitForm = (e) => {
     e.preventDefault();
-    
-    // console.log(props.error);
 
     const validationErrors = handleValidation(data);
 
-    console.log("second",validationErrors);
-
-    // validationErrors = {
-    //   username: true,
-    //   email: true,
-    //   address: true,
-    //   password: true,
-    // };
      if( validationErrors.username!== true && validationErrors.email!== true && validationErrors.address !== true && validationErrors.password!== true){
       storeData();
       setOpen(true);
       setErrors(errorObj);
       setData(initialData);
-    } else{
-      setErrors(validationErrors)
     }
+      setErrors(validationErrors)
     
   };
 
