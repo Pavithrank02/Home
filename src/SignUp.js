@@ -67,38 +67,45 @@ function SignUp(props) {
       </IconButton>
     </React.Fragment>
   );
-  const cloneErrors = JSON.parse(JSON.stringify(errors));
+  
   const handleValidation = (data) => {
-    let mockObj = cloneErrors;
-    const usernameV = "^[A-Za-z]{4,15}$"
-    const passw=  /^(?=.*[0-9]){6,16}$/;
+    const cloneErrors = JSON.parse(JSON.stringify(errors));
+    const mockObj = cloneErrors;
+    const usernameV = /^[\w]{4,15}$/
+    const passw=  /^(?=.*[0-9])[0-9]{6,15}$/;
     const emailV = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
     const { username, email, address, password } = data;
+    console.log(data)
 
     console.log("first",mockObj)
 
-    if (username !== usernameV) {
-      mockObj.username = true;
+    if (username) {
+      mockObj.username = true; 
+    }else if(username){
+
     }
-    if (email !== emailV) {
+    if ( !emailV.test(email)) {
+      mockObj.email = false;
+    }else if(emailV.test(email) && email===""){
       mockObj.email = true;
     }
     if (address==="") {
       mockObj.address = true;
     }
-    if (password !== passw) {
+    if (password==="") {
       mockObj.password = true;
     }
 
+    console.log(mockObj) ;
     return mockObj;
   };
 
   const submitForm = (e) => {
     e.preventDefault();
-
+    
     // console.log(props.error);
 
-    let validationErrors = handleValidation(data);
+    const validationErrors = handleValidation(data);
 
     console.log("second",validationErrors);
 
@@ -108,14 +115,15 @@ function SignUp(props) {
     //   address: true,
     //   password: true,
     // };
-if(!validationErrors)
-     {
+     if( validationErrors.username!== true && validationErrors.email!== true && validationErrors.address !== true && validationErrors.password!== true){
       storeData();
       setOpen(true);
+      setErrors(errorObj);
       setData(initialData);
-      
+    } else{
+      setErrors(validationErrors)
     }
-    setErrors(validationErrors);
+    
   };
 
   return (
@@ -186,9 +194,8 @@ if(!validationErrors)
             value={data.password}
             error={errors.password}
             helperText={
-              !data.password.length < 5
-                ? "Password should be greater than 5"
-                : ""
+              errors.password
+                && "Password should be greater than 5"
             }
           />
           <Button variant="contained" size="medium" onClick={submitForm}>
