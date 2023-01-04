@@ -79,20 +79,16 @@ function SignUp(props) {
 
     console.log("first",mockObj)
 
-    if (username) {
+    if (!usernameV.test(username)) {
       mockObj.username = true; 
-    }else if(username){
-
     }
     if ( !emailV.test(email)) {
-      mockObj.email = false;
-    }else if(emailV.test(email) && email===""){
       mockObj.email = true;
     }
-    if (address==="") {
+    if (!usernameV.test(address)) {
       mockObj.address = true;
     }
-    if (password==="") {
+    if (!passw.test(password)) {
       mockObj.password = true;
     }
 
