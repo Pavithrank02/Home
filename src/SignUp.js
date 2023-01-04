@@ -93,18 +93,17 @@ function SignUp(props) {
   };
 
   const submitForm = (e) => {
+
     e.preventDefault();
-
     const validationErrors = handleValidation(data);
-
+    console.log("uio")
      if( validationErrors.username!== true && validationErrors.email!== true && validationErrors.address !== true && validationErrors.password!== true){
       storeData();
       setOpen(true);
-      setErrors(errorObj);
       setData(initialData);
     }
-      setErrors(validationErrors)
-    
+    setErrors(validationErrors)
+   
   };
 
   return (
