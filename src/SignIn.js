@@ -25,7 +25,7 @@ const errorObj = {
 };
 
 function SignIn(props) {
-  
+
 
   const [data, setData] = useState(initialData);
   const [message, setMessage] = useState(false);
@@ -67,18 +67,18 @@ function SignIn(props) {
   const handleValidation = (data) => {
     const mockObj = JSON.parse(JSON.stringify(errors));
     const usernameV = /^[\w]{4,15}$/
-    const passw=  /^(?=.*[0-9])[0-9]{6,15}$/;
+    const passw = /^(?=.*[0-9])[0-9]{6,15}$/;
     const { username, password } = data;
 
     if (!usernameV.test(username)) {
-      mockObj.username = true; 
+      mockObj.username = true;
     } else {
-      mockObj.username = false; 
+      mockObj.username = false;
     }
     if (!passw.test(password)) {
       mockObj.password = true;
-    }else {
-      mockObj.password = false; 
+    } else {
+      mockObj.password = false;
     }
 
     return mockObj;
@@ -90,7 +90,7 @@ function SignIn(props) {
     const userDetails = localStorage.getItem("formsValues");
     const { username, password } = data;
     const validationErrors = handleValidation(data);
-     if( validationErrors.username!== true && validationErrors.password!== true){
+    if (validationErrors.username !== true && validationErrors.password !== true) {
       const userData = JSON.parse(userDetails);
       const existingUser = userData.find(
         (user) => user.username === username && user.password === password
@@ -101,9 +101,9 @@ function SignIn(props) {
         setData(initialData);
       } else console.log("not match");
     }
-    
+
     setErrors(validationErrors)
-    }   
+  }
 
   return (
     <Box
@@ -153,7 +153,7 @@ function SignIn(props) {
             error={errors.password}
             helperText={
               errors.password
-                && "Password should be greater than 5"
+              && "Password should be greater than 5"
             }
           />
           <Button

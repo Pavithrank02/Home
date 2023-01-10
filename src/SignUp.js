@@ -68,34 +68,34 @@ function SignUp(props) {
       </IconButton>
     </React.Fragment>
   );
-  
+
   const handleValidation = (data) => {
     const cloneErrors = JSON.parse(JSON.stringify(errors));
     const mockObj = cloneErrors;
     const usernameV = /^[\w]{4,15}$/
-    const passw=  /^(?=.*[0-9])[0-9]{6,15}$/;
+    const passw = /^(?=.*[0-9])[0-9]{6,15}$/;
     const emailV = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
     const { username, email, address, password } = data;
 
     if (!usernameV.test(username)) {
-      mockObj.username = true; 
+      mockObj.username = true;
     } else {
-      mockObj.username = false; 
+      mockObj.username = false;
     }
     if (!emailV.test(email)) {
       mockObj.email = true;
-    }else {
-      mockObj.email = false; 
+    } else {
+      mockObj.email = false;
     }
     if (!usernameV.test(address)) {
       mockObj.address = true;
-    }else {
-      mockObj.address = false; 
+    } else {
+      mockObj.address = false;
     }
     if (!passw.test(password)) {
       mockObj.password = true;
-    }else {
-      mockObj.password = false; 
+    } else {
+      mockObj.password = false;
     }
 
     return mockObj;
@@ -105,13 +105,13 @@ function SignUp(props) {
 
     e.preventDefault();
     const validationErrors = handleValidation(data);
-     if( validationErrors.username!== true && validationErrors.email!== true && validationErrors.address !== true && validationErrors.password!== true){
+    if (validationErrors.username !== true && validationErrors.email !== true && validationErrors.address !== true && validationErrors.password !== true) {
       storeData();
       setNotify(true);
       setData(initialData);
-    } 
+    }
     setErrors(validationErrors)
-   
+
   };
 
   return (
@@ -183,7 +183,7 @@ function SignUp(props) {
             error={errors.password}
             helperText={
               errors.password
-                && "Password should be greater than 5"
+              && "Password should be greater than 5"
             }
           />
           <Button variant="contained" size="medium" onClick={submitForm}>
