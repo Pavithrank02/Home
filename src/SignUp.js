@@ -27,6 +27,8 @@ const errorObj = {
 function SignUp(props) {
   const [data, setData] = useState(initialData);
   const [errors, setErrors] = useState(errorObj);
+  const [notify, setNotify] = useState(false);
+
   const inputHanlder = (event) => {
     const { name, value } = event.target;
     setData(() => {
@@ -36,14 +38,13 @@ function SignUp(props) {
       };
     });
   };
-  const [open, setOpen] = useState(false);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
 
-    setOpen(false);
+    setNotify(false);
   };
 
   const storeData = () => {
@@ -78,15 +79,23 @@ function SignUp(props) {
 
     if (!usernameV.test(username)) {
       mockObj.username = true; 
+    } else {
+      mockObj.username = false; 
     }
-    if ( !emailV.test(email)) {
+    if (!emailV.test(email)) {
       mockObj.email = true;
+    }else {
+      mockObj.email = false; 
     }
     if (!usernameV.test(address)) {
       mockObj.address = true;
+    }else {
+      mockObj.address = false; 
     }
     if (!passw.test(password)) {
       mockObj.password = true;
+    }else {
+      mockObj.password = false; 
     }
 
     return mockObj;
@@ -96,12 +105,11 @@ function SignUp(props) {
 
     e.preventDefault();
     const validationErrors = handleValidation(data);
-    console.log("uio")
      if( validationErrors.username!== true && validationErrors.email!== true && validationErrors.address !== true && validationErrors.password!== true){
       storeData();
-      setOpen(true);
+      setNotify(true);
       setData(initialData);
-    }
+    } 
     setErrors(validationErrors)
    
   };
@@ -148,7 +156,7 @@ function SignUp(props) {
             margin="dense"
             color="primary"
             name="email"
-            onChange={inputHanlder}
+            onChange={(inputHanlder)}
             value={data.email}
             required={true}
             error={errors.email}
@@ -183,7 +191,7 @@ function SignUp(props) {
           </Button>
         </form>
         <Snackbar
-          open={open}
+          open={notify}
           autoHideDuration={6000}
           onClose={handleClose}
           message="User Account Created Successfully!"

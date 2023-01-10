@@ -13,15 +13,23 @@ import Snackbar from "@mui/material/Snackbar";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Styles.css";
 
+const initialData = {
+  username: "",
+  password: "",
+};
+const errorObj = {
+  username: false,
+  email: false,
+  address: false,
+  password: false,
+};
+
 function SignIn(props) {
-  const initialData = {
-    username: "",
-    password: "",
-  };
+  
 
   const [data, setData] = useState(initialData);
   const [message, setMessage] = useState(false);
-  const [error, setError] = useState(true);
+  const [errors, setErrors] = useState(errorObj);
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -56,27 +64,46 @@ function SignIn(props) {
     setFormType("signup");
   };
 
-  const submitButton = (e) => {
-    e.preventDefault();
-    setError(false);
+  const handleValidation = (data) => {
+    const mockObj = JSON.parse(JSON.stringify(errors));
+    const usernameV = /^[\w]{4,15}$/
+    const passw=  /^(?=.*[0-9])[0-9]{6,15}$/;
+    const { username, password } = data;
 
+    if (!usernameV.test(username)) {
+      mockObj.username = true; 
+    } else {
+      mockObj.username = false; 
+    }
+    if (!passw.test(password)) {
+      mockObj.password = true;
+    }else {
+      mockObj.password = false; 
+    }
+
+    return mockObj;
+  };
+
+  const submitButton = (e) => {
+
+    e.preventDefault();
     const userDetails = localStorage.getItem("formsValues");
     const { username, password } = data;
-    if (!(username === "" && password.length < 5)) {
-         const userData = JSON.parse(userDetails);
+    const validationErrors = handleValidation(data);
+     if( validationErrors.username!== true && validationErrors.password!== true){
+      const userData = JSON.parse(userDetails);
       const existingUser = userData.find(
         (user) => user.username === username && user.password === password
       );
 
       if (existingUser) {
         setMessage(true);
+        setData(initialData);
       } else console.log("not match");
     }
-    setData(initialData);
-    setError(true);
-  };
-
-  
+    
+    setErrors(validationErrors)
+    }   
 
   return (
     <Box
@@ -113,7 +140,8 @@ function SignIn(props) {
             name="username"
             onChange={inputHanlder}
             value={data.username}
-            error={error ? "" : !data.username}
+            error={errors.username}
+            helperText={errors.username && "Field should not be empty"}
           />
           <TextField
             margin="normal"
@@ -122,7 +150,11 @@ function SignIn(props) {
             name="password"
             onChange={inputHanlder}
             value={data.password}
-            error={error ? "" : !data.password}
+            error={errors.password}
+            helperText={
+              errors.password
+                && "Password should be greater than 5"
+            }
           />
           <Button
             variant="contained"
