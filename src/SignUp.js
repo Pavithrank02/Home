@@ -70,8 +70,7 @@ function SignUp(props) {
   );
 
   const handleValidation = (data) => {
-    const cloneErrors = JSON.parse(JSON.stringify(errors));
-    const mockObj = cloneErrors;
+    const mockObj = JSON.parse(JSON.stringify(errors));
     const usernameV = /^[\w]{4,15}$/
     const passw = /^(?=.*[0-9])[0-9]{6,15}$/;
     const emailV = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
@@ -103,7 +102,6 @@ function SignUp(props) {
 
   const submitForm = (e) => {
 
-    e.preventDefault();
     const validationErrors = handleValidation(data);
     if (validationErrors.username !== true && validationErrors.email !== true && validationErrors.address !== true && validationErrors.password !== true) {
       storeData();
