@@ -5,9 +5,10 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 
 export default function Header() {
+
   return (
-    <Box sx={{ flexGrow: 1, marginBottom: 5, marginTop: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1, marginTop: 1 }}>
+      <AppBar position="sticky">
         <Toolbar>
           <IconButton
             size="large"
