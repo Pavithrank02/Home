@@ -17,9 +17,9 @@ const Body = () => {
           xs={8}
           display="flex"
           direction="column"
-          justifyContent="center"
+          justifyContent="space-around"
           alignItems="center"
-          marginTop={3}
+          marginTop={6}
         >
           <Typography variant="h3" >
             Welcome to Website

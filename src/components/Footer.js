@@ -7,7 +7,7 @@ import CopyrightIcon from '@mui/icons-material/Copyright';
 function Footer() {
   return (
     <Box sx={{ flexGrow: 1, top: 'auto' }} >
-      <AppBar position="sticky">
+      <AppBar  sx={{ top: 'auto', bottom: 0 }}>
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }} align="center">
             <CopyrightIcon />Copyrighted to pavithran
